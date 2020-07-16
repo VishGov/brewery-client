@@ -1,6 +1,7 @@
 package com.vishnu.breweryclient.web.client;
 
 import com.vishnu.breweryclient.web.model.BeerDTO;
+import com.vishnu.breweryclient.web.model.CustomerDTO;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -16,6 +17,7 @@ import java.util.UUID;
 public class BreweryClient {
 
     public final String BEER_PATH_V1 = "/api/v1/beer/";
+    public final String CUSTOMER_PATH_V1 = "/api/v1/customer/";
     private final RestTemplate restTemplate;
     private String apiHost;
 
@@ -39,4 +41,20 @@ public class BreweryClient {
         restTemplate.delete(apiHost + BEER_PATH_V1 + uuid.toString());
     }
 
+    public CustomerDTO getCustomerById(UUID uuid) {
+        return restTemplate.getForObject(apiHost + CUSTOMER_PATH_V1 + uuid.toString(), CustomerDTO.class);
+    }
+
+    public URI saveNewCustomer(CustomerDTO customerDTO) {
+        return restTemplate.postForLocation(apiHost + CUSTOMER_PATH_V1, customerDTO);
+    }
+
+    public void updateCustomer(UUID uuid, CustomerDTO customerDTO) {
+        restTemplate.put(apiHost + CUSTOMER_PATH_V1 + uuid.toString(), customerDTO);
+    }
+
+
+    public void deleteCustomer(UUID uuid) {
+        restTemplate.delete(apiHost + CUSTOMER_PATH_V1 + uuid.toString());
+    }
 }
