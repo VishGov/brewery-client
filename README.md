@@ -1,1 +1,2 @@
-# Brewery Client that will interact with beer-brewery microservice
+# Brewery Client 
+Spring microservice that will interact with beer-brewery microservice
