@@ -1,4 +1,4 @@
-package com.vishnu.breweryclient.breweryclient.web.model;
+package com.vishnu.breweryclient.web.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
