@@ -1,0 +1,1 @@
+# Brewery Client that will interact with beer-brewery microservice
